@@ -1,0 +1,6 @@
+module Pods_SecindModuleProject {
+  umbrella header "Pods-SecindModuleProject-umbrella.h"
+
+  export *
+  module * { export * }
+}

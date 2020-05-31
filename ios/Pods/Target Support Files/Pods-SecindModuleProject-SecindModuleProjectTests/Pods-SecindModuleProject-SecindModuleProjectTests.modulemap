@@ -1,0 +1,6 @@
+module Pods_SecindModuleProject_SecindModuleProjectTests {
+  umbrella header "Pods-SecindModuleProject-SecindModuleProjectTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

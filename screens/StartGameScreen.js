@@ -12,6 +12,7 @@ import Card from "../components/Card";
 import Input from "../components/Input";
 import colors from "../constans/colors";
 import Number from "../components/Number";
+import MainButton from "../components/MainButton";
 
 const StartGameScreen = (props) => {
 
@@ -47,7 +48,9 @@ const StartGameScreen = (props) => {
             <Card style={styles.summaryContainer}>
                 <Text>You selected</Text>
                 <Number>{selectedNumber}</Number>
-                <Button onPress={()=>{props.startGameHandler(selectedNumber)}} title="START GAME"/>
+                <MainButton onPress={()=>{props.startGameHandler(selectedNumber)}}>
+                    START GAME
+                </MainButton>
             </Card>
         );
     }
@@ -72,10 +75,16 @@ const StartGameScreen = (props) => {
                         value={enteredValue}
                     />
                     <View style={styles.buttonContainer}>
-                        <View style={styles.button}><Button onPress={resetInputhandler} color={colors.accent}
-                                                            title="Reset"/></View>
-                        <View style={styles.button}><Button onPress={confirmInputhandler} color={colors.primary}
-                                                            title="Confirm"/></View>
+                        <View style={styles.button}>
+                            <MainButton onPress={resetInputhandler} color={colors.accent}>
+                                Reset
+                            </MainButton>
+                        </View>
+                        <View style={styles.button}>
+                            <MainButton onPress={confirmInputhandler} color={colors.primary}>
+                                Confirm
+                            </MainButton>
+                        </View>
                     </View>
                 </Card>
                 {confirmOutput}
@@ -99,17 +108,17 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: 'row',
-        width: '100%',
+        width: 300,
+        maxWidth: '100%',
         justifyContent: 'space-between',
         paddingHorizontal: 15
     },
     inputContainer: {
-        width: 300,
-        maxWidth: '80%',
         alignItems: 'center',
+        justifyContent: 'center'
     },
     button: {
-        width: 100,
+        width: 130
     },
     input: {
         width: 50,

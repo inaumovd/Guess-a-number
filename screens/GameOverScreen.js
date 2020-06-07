@@ -4,32 +4,36 @@ import {
     View,
     Text,
     Button,
-    Image
+    Image,
+    Dimensions,
+    SafeAreaView
 } from 'react-native';
 import colors from "../constans/colors";
 import MainButton from "../components/MainButton";
 
 const GameOverScreen = (props) => {
     return (
-        <View style={styles.screen}>
-            <Text>Game is over!</Text>
-            <View style={styles.imageContainer}>
-                <Image
-                    style={styles.image}
-                    source={require('../assets/images/success.png')}
-                    // source={{uri: 'https://www.yourdictionary.com/images/definitions/lg/12337.summit.jpg'}}
-                    // resizeMode="cover"
-                />
+        <SafeAreaView>
+            <View style={styles.screen}>
+                <Text>Game is over!</Text>
+                <View style={styles.imageContainer}>
+                    <Image
+                        style={styles.image}
+                        source={require('../assets/images/success.png')}
+                        // source={{uri: 'https://www.yourdictionary.com/images/definitions/lg/12337.summit.jpg'}}
+                        // resizeMode="cover"
+                    />
+                </View>
+                <Text style={styles.resultText}>Your phone needed <Text style={styles.highlight}>{props.roundsNumber}</Text> rounds to guess the number
+                    <Text style={styles.highlight}> {props.userNumber}</Text>
+                </Text>
+                <MainButton onPress={props.onRestart}>
+                    NEW GAME
+                </MainButton>
             </View>
-            <Text style={styles.resultText}>Your phone needed <Text style={styles.highlight}>{props.roundsNumber}</Text> rounds to guess the number
-                <Text style={styles.highlight}> {props.userNumber}</Text>
-            </Text>
-            <MainButton onPress={props.onRestart}>
-                NEW GAME
-            </MainButton>
-        </View>
+        </SafeAreaView>
     )
-}
+} 
 
 export default GameOverScreen;
 
@@ -44,8 +48,8 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     imageContainer: {
-        width: 300,
-        height: 300,
+        width: Dimensions.get('window').width * 0.7,
+        height: Dimensions.get('window').width * 0.7,
         borderRadius: 150,
         borderWidth: 3,
         borderColor: 'black',
